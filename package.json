@@ -1,0 +1,35 @@
+{
+  "name": "testapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ws": "^5.0.2",
+    "friendly-url": "^1.0.3",
+    "fs": "^0.0.1-security",
+    "get-artist-title": "^1.3.1",
+    "get-video-id": "^3.2.0",
+    "get-youtube-id": "^1.0.1",
+    "get-youtube-title": "^1.0.1",
+    "lowdb": "^1.0.0",
+    "nanoid": "^3.1.23",
+    "path": "^0.12.7",
+    "sanitize-filename": "^1.6.3",
+    "socket.io": "^4.1.3",
+    "updated-youtube-info": "^1.4.7",
+    "ws": "^7.5.3",
+    "youtube-dl-exec": "^1.2.4",
+    "youtube-metadata-from-url": "^1.0.3",
+    "ytsr": "^3.5.3"
+  }
+}

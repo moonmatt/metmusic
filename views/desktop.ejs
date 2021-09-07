@@ -1,0 +1,155 @@
+<!-- desktop -->
+<div class="screenBlock" id="screenBlock"></div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+    <script nomodule defer src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
+
+    <link rel="stylesheet" href="css/desktop.css">
+    <title>metmusic!</title>
+</head>
+<body>
+<!-- SONG PLAYER -->
+
+<audio controls="controls" id="audio" style="display: none;">
+    <source src="" id='song' type="audio/mpeg"/>
+    Your browser does not support the audio element.
+</audio>
+
+    <div class="container">
+    <div class="sidebar">
+        <h1>metmusic</h1>
+        <input type="text" class="search" placeholder="Search..." id='search' onkeyup="search(this.value)">
+
+        <div class="items">
+            <div class="item" onclick="uploadPopup()">
+                <ion-icon name="logo-youtube" style="margin-right: 5px"></ion-icon>  Song Url
+            </div>
+            <div class="item" onclick="youtubePopup()">
+                <ion-icon name="logo-youtube" style="margin-right: 5px"></ion-icon>  Song Search
+            </div>
+            <div class="item">
+                <ion-icon name="share-social-outline" style="margin-right: 5px"></ion-icon>  Share
+            </div>
+            <div class="item" onclick="logout()">
+                <ion-icon name="log-out" style="margin-right: 5px"></ion-icon>  Logout
+            </div>
+        </div>
+
+        <div class="song">
+            <div class="item">
+                <ion-icon name="person" style="margin-right: 5px"></ion-icon>  Logged as&nbsp;<b id="logged-user"></b>
+            </div>
+            <div class="song-image" id="song-image"></div>
+            <div class="title" id="side-title">Title</div>
+            <div class="author" id="side-author">Author</div>
+        </div>
+
+    </div>
+    <div class="content">
+        <div class="header sticky">
+            <div class="icons">
+                <ion-icon name="shuffle-outline" class="small" onclick="random()"></ion-icon>
+
+                <ion-icon name="play-back" class="big" onclick="previous()"></ion-icon>
+                <div id="playButton" onclick="playStop()"><ion-icon name="play" class="bigger"></ion-icon></div>
+                <ion-icon name="play-forward" class="big" onclick="skip()"></ion-icon>
+
+                <ion-icon name="infinite" class="small" style="color: white" onclick="loopRandom()" id="loop"></ion-icon>
+            </div>
+            <div class="player-slot">
+                <div id="songTitle">Waiting for a Song...</div>
+                <div class="player" id="player">
+                
+                    <div class="actual" id="actual">0:00</div>
+                    <input type="range" min="0" max="100" value="0" class="bar" id="bar">
+                    <div class="duration" id="duration">0:00</div>
+                </div>
+            </div>
+
+            <div class="volume">
+                <ion-icon name="volume-high"></ion-icon>
+                <input type="range" min="0" max="100" value="100" id="volume">
+            </div>
+
+        </div>
+
+        <div class="box">
+
+                <div class="title" id="random-songs-title">Random songs</div>
+                <div class="random-songs" id='random-songs'>
+                </div>
+                <hr id="random-songs-hr">
+
+            <div class="songs-list" id='songs-list'>
+            </div>
+
+            <div class="songs-list" id="searchSongs-list" style="display: none;">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+        <div class="popup" id="upload-popup">
+            <div class="content">
+                <h2>Upload a song</h2>
+                <input type="url" placeholder="Youtube Song or Playlist URL" id='upload-input'>
+                <div class="button" onclick="uploadSong()">Upload</div>
+                <div class="button" onclick="closeUploadPopup()">Close</div>
+            </div>
+        </div>
+
+        <div class="popup" id="username-popup">
+            <div class="content">
+                <h2>Select your username</h2>
+                <select id="selectUsernames" name="selectUsernames">
+                </select>
+                <div class="button" onclick="saveUsername()">Confirm</div>
+            </div>
+        </div>
+
+        <div class="popup" id="youtube-popup">
+            <div class="content">
+                <h2>Search a Youtube Song</h2>
+                <input type="text" placeholder="YouTube song title" id='youtube-title'>
+                </select>
+                <div class="button" onclick="closeYoutubePopup()">Close</div>
+                <div class="button" onclick="youtubeSearch()">Search</div>
+            </div>
+        </div>
+
+        <div class="popup" id="youtube-results">
+            <div class="content">
+                <h2>Here are the results</h2>
+                <hr>
+
+                <div class="youtube-result-songs" id="youtube-result-songs">
+                    
+                </div>
+                <div class="button" onclick="closeYoutubeResultsPopup()">Close</div>
+            </div>
+        </div>
+
+<div id="alerts">
+</div>
+
+<script src="scripts/alerter.js"></script>
+<script src="/socket.io/socket.io.js"></script>    
+<script src="scripts/desktop.js" defer></script>
+
+</body>
+</html>
