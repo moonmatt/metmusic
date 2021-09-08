@@ -363,7 +363,7 @@ io.on("connection", socket => {
                 //file removed
             } catch(err) {
                 console.error(err)
-            }
+            } 
         }
     })
 
