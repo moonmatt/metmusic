@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">  -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 
@@ -32,6 +33,7 @@
         <h1>metmusic</h1>
         <input type="text" class="search" placeholder="Search..." id='search' onkeyup="search(this.value)">
 
+        <hr>
         <div class="items">
             <div class="item" onclick="uploadPopup()">
                 <ion-icon name="logo-youtube" style="margin-right: 5px"></ion-icon>  Song Url
@@ -39,9 +41,11 @@
             <div class="item" onclick="youtubePopup()">
                 <ion-icon name="logo-youtube" style="margin-right: 5px"></ion-icon>  Song Search
             </div>
+            <a href="https://github.com/moonmatt/metmusic" target="_blank">
             <div class="item">
-                <ion-icon name="share-social-outline" style="margin-right: 5px"></ion-icon>  Share
+                <ion-icon name="logo-github" style="margin-right: 5px"></ion-icon>  Source Code
             </div>
+            </a>
             <div class="item" onclick="logout()">
                 <ion-icon name="log-out" style="margin-right: 5px"></ion-icon>  Logout
             </div>
@@ -108,8 +112,8 @@
             <div class="content">
                 <h2>Upload a song</h2>
                 <input type="url" placeholder="Youtube Song or Playlist URL" id='upload-input'>
-                <div class="button" onclick="uploadSong()">Upload</div>
                 <div class="button" onclick="closeUploadPopup()">Close</div>
+                <div class="button" onclick="uploadSong()">Download <ion-icon name="cloud-download"></ion-icon></div>
             </div>
         </div>
 
@@ -118,6 +122,7 @@
                 <h2>Select your username</h2>
                 <select id="selectUsernames" name="selectUsernames">
                 </select>
+                <br>
                 <div class="button" onclick="saveUsername()">Confirm</div>
             </div>
         </div>
@@ -128,13 +133,13 @@
                 <input type="text" placeholder="YouTube song title" id='youtube-title'>
                 </select>
                 <div class="button" onclick="closeYoutubePopup()">Close</div>
-                <div class="button" onclick="youtubeSearch()">Search</div>
+                <div class="button" onclick="youtubeSearch()">Search <ion-icon name="search"></ion-icon></div>
             </div>
         </div>
 
         <div class="popup" id="youtube-results">
             <div class="content">
-                <h2>Here are the results</h2>
+                <h2>YouTube Results</h2>
                 <hr>
 
                 <div class="youtube-result-songs" id="youtube-result-songs">

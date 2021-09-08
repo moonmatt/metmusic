@@ -4,16 +4,15 @@
     padding: 0;
 }
 body {
-    background-color: #1F1F1F;
-    font-family: 'Lato', sans-serif;
+    background-color: #1d1d1d;
+    font-family: 'Rubik', sans-serif;
 }
-
 
 .active {
     background-color: #40407a!important;
 }
 .sidebar { 
-    background-color: #3C3C3C;
+    background-color: #212121;
     position: fixed;
     height: 100%;
     width: 13%;
@@ -25,26 +24,37 @@ body {
     color: #eee
 }
 .sidebar input { 
-    margin: 0 10px 10px 15px;
+    margin: 15px 10px 10px 15px;
     padding: 9px 5px 9px 7px;
     border-radius: 5px;
-    width: 80%;
-    background-color: #1F1F1F;
+    width: -moz-available;
+    background-color: #262626;
     border: none;
     color: #eee;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .sidebar .items {
     margin: 15px 10px 10px 15px;
     cursor: pointer;
 }
 .sidebar .item {
-    margin: 2px 0px 0px 0px;
+    margin: 7px 0px 0px 0px;
     border-radius: 5px;
+    padding: 7px 5px 7px 5px;
     font-size: 1em;
-    padding: 5px;
     color: #eee;
+    background-color: #262626;
     display: flex;
     align-items: center;
+}
+.sidebar .item:hover {
+    background: #1d1d1d;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 .sidebar .item .iconify {
     margin-right: 15px;
@@ -87,7 +97,7 @@ body {
     float: right;
 }
 .header {
-    background-color: #2C2C2C;
+    background-color: #212121;
     padding: 20px 5% 20px 5%;
     display: grid;
     grid-template-columns: 20% 60% 20%;
@@ -213,12 +223,24 @@ body {
     grid-column-gap: 20px;
     cursor: pointer;
 }
+.box .random-songs .song {
+    border-radius: 5px;
+    background-color: #262626;
+    padding: 10px;
+    border-radius: 5px;
+}
+.box .random-songs .song:hover {
+    background: #1d1d1d;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
 .box .random-songs .song img{
     width: 100%;
-    height: 250px;
+    height: auto;
 }
 .box .random-songs .song .title {
     font-size: 18px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 .box .random-songs .song .author {
@@ -232,6 +254,14 @@ body {
     display: grid;
     grid-template-columns: 2% auto 10%;
     cursor: default;
+    background-color: #262626;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.box .song-item:hover {
+    background: #1d1d1d;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 .box .song-item .name {
     display:flex;align-items:center;
@@ -248,7 +278,7 @@ body {
 .box .song-item .icon-start {
     display:flex;align-items:center;
 }
-.song-item:nth-child(even) {background: #232323}
+.song-item:nth-child(even) {background: #212121}
 
 /* hr */
 hr {
@@ -256,6 +286,9 @@ hr {
     opacity: 0.2;
 }
 
+a {
+    text-decoration: none;
+}
 /* fixed */
 .sticky {
     position: fixed;
@@ -279,7 +312,7 @@ hr {
     z-index: 99999999999999999999999999999999999999999999999999999999999;
 }
 .popup .content {
-    background-color: #3C3C3C;
+    background-color: #212121;
     margin: auto; /* 15% from the top and centered */
     padding: 20px;
     width: 35%; /* Could be more or less, depending on screen size */
@@ -287,9 +320,10 @@ hr {
 }
 .popup .content input {
     margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 5px;
     padding: 10px 5px 10px 10px;
-    background-color: #1F1F1F;
+    background-color: #262626;
     width: 100%;
     border: none;
     color: #eee;
@@ -300,10 +334,23 @@ hr {
 .popup .content .button {
     float: right;
     padding: 10px;
-    background-color: white;
-    color: black;
+    background-color:#262626;
+    color: #eee;
     margin: 10px 0 0 10px;
     cursor: pointer;
+    border-radius: 5px;
+}
+.popup .content .button:hover {
+    background: #1d1d1d;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+.popup .content select {
+    background-color: #262626;
+    color: #eee;
+    border: none;
+    padding: 15px;
+    margin-top: 10px;
 }
 
 #alerts {
@@ -313,10 +360,12 @@ hr {
     width: 250px;
 }
 .alert {
-    background-color: #3C3C3C;
+    background-color: #212121;
     color: #eee;
     padding: 20px;
     margin-top: 15px;
+    border-radius: 5px;
+    z-index: 999999999999999999999999999999999999999999999999999999999999999999999999;
 }
 
 .youtube-result-songs .song-item {
@@ -324,6 +373,14 @@ hr {
     color: #eee;
     display: grid;
     cursor: default;
+    background-color: #262626;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.youtube-result-songs .song-item:hover {
+    background: #635959;
+    transition: 0.3s ease;
+    text-decoration: none;
 }
 
 .screenBlock {
@@ -331,6 +388,7 @@ hr {
     height: 100%;
     background-color: #1F1F1F;
     position: fixed;
+    transition: 0.3s ease;
     z-index: 999999999999999;
 }
 
@@ -366,7 +424,7 @@ hr {
         width: 80%!important;
     }
     .box .random-songs .song img {
-        height: 150px!important;
+        /* height: 150px!important; */
     }
 
   }
@@ -392,7 +450,7 @@ hr {
         width: 80%!important;
     }
     .box .random-songs .song img {
-        height: 150px!important;
+        /* height: 150px!important; */
     }
 
   }
@@ -415,7 +473,7 @@ hr {
         width: 100%!important;
     }
     .box .random-songs .song img {
-        height: 100px!important;
+        /* height: 100px!important; */
     }
   }
   
@@ -435,7 +493,7 @@ hr {
         width: 100%!important;
     }
     .box .random-songs .song img {
-        height: 100px!important;
+        /* height: 100px!important; */
     }
     .volume {
         display: none!important;
@@ -482,7 +540,7 @@ hr {
     ##Screen = B/w 320px to 479px
   */
   
-  @media (min-width: 320px) and (max-width: 480px) {
+  @media (min-width: 50px) and (max-width: 480px) {
     
     /* CSS */
     .sidebar {
@@ -495,7 +553,7 @@ hr {
         width: 100%!important;
     }
     .box .random-songs .song img {
-        height: 100px!important;
+        /* height: 100px!important; */
     }
     .volume {
         display: none!important;
@@ -533,4 +591,4 @@ hr {
     #songTitle {
         margin-bottom: 10px;
     }
-  }
+  } 

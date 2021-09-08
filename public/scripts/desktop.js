@@ -89,7 +89,7 @@ socket.on('music-play', (api) => {
         currentData.shortTitle = api.shortTitle
 
         audio.src = 'http://metmusic.tk/stream/' + api.id
-        document.title = api.title
+        document.title = api.shortTitle + ' - ' + api.author
         audio.load()
         audio.play() 
         
@@ -149,11 +149,15 @@ function random(){
 
 function deleteSong(id){
     socket.emit('delete', (id))
+    console.log('INVIA CANCELLA ' + id)
 
 }
 socket.on('deleted', (id) => {
 
-    document.querySelectorAll('#' + id).forEach(e => e.remove());
+    document.getElementById(id).remove()
+    if(document.getElementsByClassName('blockID#' + id)[0]){
+        document.getElementsByClassName('blockID#' + id)[0].remove()
+    }
 
     if(audio.duration > 0 && !audio.paused) {
         skip()
@@ -242,8 +246,6 @@ socket.on('search-result', (songs) => {
 
 
 socket.on('upload-update', (song) => {
-    // da fare domani, non ho voglia ora
-    console.log(song)
 
     const newDiv = document.createElement("div");
     newDiv.id = song.id
@@ -256,7 +258,7 @@ socket.on('upload-update', (song) => {
 
     const newDivSong = document.createElement("div")
     newDivSong.setAttribute("onclick","playSong('" + song.id + "')");
-    newDivSong.innerHTML = song.title
+    newDivSong.innerHTML = song.author + ' - ' + song.shortTitle
 
     const newDivIconEnd = document.createElement("div")
     newDivIconEnd.classList = 'icon-end'
@@ -277,6 +279,9 @@ socket.on('newSongs', (songs) => {
 
     songs.forEach(song => {
 
+        if(!song.shortTitle || song.shortTitle == '-'){
+            song.shortTitle = song.title
+        }
         const newDiv = document.createElement("div");
         newDiv.id = song.id
         newDiv.classList = 'song-item'
@@ -288,7 +293,7 @@ socket.on('newSongs', (songs) => {
     
         const newDivSong = document.createElement("div")
         newDivSong.setAttribute("onclick","playSong('" + song.id + "')");
-        newDivSong.innerHTML = song.title
+        newDivSong.innerHTML = song.author + ' - ' + song.shortTitle
     
         const newDivIconEnd = document.createElement("div")
         newDivIconEnd.classList = 'icon-end'
@@ -316,7 +321,7 @@ socket.on('newSongs', (songs) => {
             let blockSong = songs[songIndex]
     
             const newDiv = document.createElement("div");
-            newDiv.classList = 'song'
+            newDiv.classList = `song blockID#${blockSong.id}`
             newDiv.setAttribute("onclick","playSong('" + blockSong.id + "')");
     
             const newDivImage = document.createElement("img")
@@ -324,7 +329,7 @@ socket.on('newSongs', (songs) => {
 
             const newDivTitle = document.createElement("div")
             newDivTitle.classList = 'title'
-            newDivTitle.innerHTML = blockSong.title
+            newDivTitle.innerHTML = blockSong.shortTitle
 
             const newDivAuthor = document.createElement("div")
             newDivAuthor.classList = 'author'
@@ -349,12 +354,13 @@ function uploadPopup(){
 }
 function closeUploadPopup(){
     document.getElementById('upload-popup').style.display = 'none'
+    let songUrl = document.getElementById('upload-input').value = ''
 }
 function uploadSong(){
     let songUrl = document.getElementById('upload-input')
     if(songUrl){
         socket.emit('upload', ({songLink: songUrl.value, username: username}))
-        createAlert('Uploading song...')
+        createAlert('Please wait...')
         closeUploadPopup()
         songUrl.value = ''
     }
@@ -364,6 +370,7 @@ function youtubePopup(){
 }
 function closeYoutubePopup(){
     document.getElementById('youtube-popup').style.display = 'none'
+    let query = document.getElementById('youtube-title').value = ''
 }
 function youtubeSearch(){
     let query = document.getElementById('youtube-title').value
