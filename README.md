@@ -19,7 +19,7 @@ StackEdit stores your files in your browser, which means all your files are auto
 # Development
 This is a helpful guide on how metmusic works and how to make changes to it.
 ## How it works
-metmusic runs on an Express server with Node.js, the communication from client to server and from server to client are made with socket.io, except for the song source, which is made through a GET request.
+metmusic runs on an [Express](https://expressjs.com) server with [Node.js](https://nodejs.org), the communication from client to server and from server to client is made with [socket.io](https://socket.io/), except for the song source, which is made through a GET request.
 
 **Here are all the socket calls and callbacks**
 ### Play music
@@ -99,3 +99,83 @@ The client at this point receives it
 
     socket.on('deleted',  (id)  =>  {...
 and removes the song item from the dom, and skips to the next song if the one that is currently playing is the one that has been deleted.
+### Search
+To search for a song in the list, the user types into an input, which emits a socket every time the value changes, in order to make the experience smooth. If you want you could even make it search for the title only when the input is sent.
+
+From the client:
+
+    socket.emit('search',  {  value:  value,  username:  username  })
+On the server:
+
+    socket.on('search',  (data)  =>  {...
+If it finds anything containing the value from the input. it emits a socket to the client containing all the songs that match:
+
+    socket.emit('search-result',  (results))
+At this point the client receives the data
+
+    socket.on('search-result',  (songs)  =>  {...
+and modifies the DOM, making all the songs become invisible using display: none, and showing only the ones from the server.
+### Upload from YouTube Url (playlist or video)
+The client emits a socket containing the Url of the Playlist or video and the username:
+
+    socket.emit('upload',  ({songLink:  songUrl.value,  username:  username}))
+The server receives it, 
+
+    socket.on('upload',  async  ({songLink,  username})  =>  {...
+
+downloads everything needed using [youtube-dl](https://youtube-dl.org/), saves the data in the database and then emits to the client all the informations:
+
+    socket.emit('upload-update',  ({
+    id:  generatedId,
+    title:  title,
+    shortTitle:  shortTitle,
+    author:  json.author_name,
+    media:  path  +  'metmusic-'  +  generatedId  +  '.webm',
+    thumbnail:  json.thumbnail_url
+    }))
+Now the client gets the data and shows it in the DOM
+
+    socket.on('upload-update',  (song)  =>  {...
+### YouTube Search
+On metmusic you can also search for a song directly from YouTube, without actually having to copy the url!
+
+The client emits a socket containing the searched query from the input
+
+    socket.emit('youtube-search',  (query))
+The server gets it using
+
+    socket.on('youtube-search',  async  (search)  =>  {...
+   After analysing the data, sends back the results with
+   
+
+    socket.emit('youtube-results',  (results))
+At this point the clients shows the results in a popup, and then you can download the song directly by clicking on it.
+
+    socket.on('youtube-results',  (songs)  =>  {...
+### Authentication
+Everyone that uses metmusic has to be locally authenticated in order to allow multiple people to use the app.
+The authentication is stored with Cookies
+If the client is not logged in, it emits a socket to the server asking for all the available accounts:
+
+    socket.emit('users')
+The server sends back the list of the users
+
+    socket.on('users',  ()  =>  {...
+    socket.emit('users-result',  (usernames))
+On the frontend now appears a popup with a select form, once the visitor selects the correct account, it gets stored in the cookies.
+
+    socket.on('users-result',  (users)  =>  {...
+### Homepage Songs
+The songs in the homepage are sent once the user is Authenticated.
+The client asks for the songs through a socket emit:
+
+    socket.emit('requestSongs',  (username))
+The server receives the request and sends back the songs
+
+    socket.on('requestSongs',  (username)  =>  {...
+    
+    socket.emit('newSongs',  (allSongs))
+Now the client gets the results and shows them in the DOM
+
+    socket.on('newSongs',  (songs)  =>  {...
+
