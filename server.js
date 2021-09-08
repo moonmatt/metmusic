@@ -1,3 +1,6 @@
+let version = '1.0.0'
+
+
 const express = require('express')
 const app = express();
 const cors = require('cors');
@@ -15,7 +18,7 @@ const { nanoid } = require('nanoid')
 const youtube = require('youtube-metadata-from-url');
 const getArtistTitle = require('get-artist-title')
 const ytsr = require('ytsr');
-
+ 
 app.use(cors());
 app.set('view engine', 'ejs');
 app.use(express.static('public')) // relative path of client-side code
@@ -37,8 +40,8 @@ const io = new Server(server);
 
 // Set some defaults (required if your JSON file is empty)
 db.defaults({
-    songs: [],
-    users: []
+    users: [],
+    songs: []
   }).write()
 
 
@@ -391,33 +394,16 @@ io.on("connection", socket => {
 
         console.log(search)
 
-        // const filter1 = filters1.get('Type').get(search);
-        // const filters2 = await ytsr.getFilters(filter1.url);
-
         const searchResults = await ytsr(search);
 
-        const slicedArray = searchResults.items.slice(0, 5);
+        const searchedResults5 = searchResults.items.slice(0, 5);
 
-        console.log(slicedArray)
-
-        socket.emit('youtube-results', (slicedArray))
+        socket.emit('youtube-results', (searchedResults5))
     })
 
 });
 
 app.get('/', (req, res) => {
-
-
-
-    // let songs = db.get('songs').value()
-    // // let nums = []
-    // // if(songs.length >= 5){
-    // //     while(nums.size !== 5) {
-    // //         let numero = Math.floor(Math.random() * songs.length)
-    // //       nums.push(songs[numero]);
-    // //     }
-    // // }
-
     res.render('desktop.ejs')
 })
 
@@ -430,20 +416,7 @@ app.post('/test', async (req, res) => {
     res.json({title: songLink})
 })
 
-function updateSongs(){
-    let ciao = db.get('songs').value()
-    ciao.forEach(song => {
-        db.get('songs')
-        .find({id: song.id})
-        .assign({ username: 'matteo' })
-        .write()
-    })
-    console.log('fatto')
-}
-
-// updateSongs()
- 
 // SERVER
 server.listen(8888, () => {
     console.log('started lol xd')
-})
+}) 
