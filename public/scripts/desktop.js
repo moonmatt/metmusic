@@ -201,11 +201,18 @@ function search(value){
         document.getElementById('songs-list').style.display = 'none'
         document.getElementById('searchSongs-list').style.display = 'block'
 
+        document.getElementById('random-songs').style.display = 'none'
+        document.getElementById('random-songs-hr').style.display = 'none'
+        document.getElementById('random-songs-title').style.display = 'none'
+
     } else {
         // reset
         document.getElementById('songs-list').style.display = 'block'
         document.getElementById('searchSongs-list').style.display = 'none'
         document.querySelectorAll('.search-item').forEach(e => e.remove());
+        document.getElementById('random-songs').style.display = 'grid'
+        document.getElementById('random-songs-hr').style.display = 'block'
+        document.getElementById('random-songs-title').style.display = 'block'
     }
 }
 
@@ -355,6 +362,9 @@ function closeSearchPopup(){
     document.getElementById('songs-list').style.display = 'block'
     document.getElementById('searchSongs-list').style.display = 'none'
     document.querySelectorAll('.search-item').forEach(e => e.remove());
+    document.getElementById('random-songs').style.display = 'grid'
+    document.getElementById('random-songs-hr').style.display = 'none'
+    document.getElementById('random-songs-title').style.display = 'block'
 
 }
 function MobileUploadButtons(){
