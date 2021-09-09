@@ -3,7 +3,6 @@ let version = "1.0.0";
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
 const ejs = require("ejs");
@@ -12,7 +11,7 @@ const server = http.createServer(app);
 const youtubedl = require("youtube-dl-exec");
 const getYoutubeTitle = require("get-youtube-title");
 const getYouTubeID = require("get-youtube-id");
-var sanitize = require("sanitize-filename");
+
 const { nanoid } = require("nanoid");
 const youtube = require("youtube-metadata-from-url");
 const getArtistTitle = require("get-artist-title");
@@ -21,12 +20,10 @@ const ytsr = require("ytsr");
 app.use(cors());
 app.set("view engine", "ejs");
 app.use(express.static("public")); // relative path of client-side code
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
 app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 // DATABASE
 const low = require("lowdb");
@@ -38,7 +35,7 @@ const db = low(adapter);
 // socket
 
 const { Server } = require("socket.io");
-const { slice } = require("lodash");
+// const { slice } = require("lodash");
 const io = new Server(server);
 
 // Set some defaults (required if your JSON file is empty)
