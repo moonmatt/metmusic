@@ -189,7 +189,7 @@ io.on("connection", (socket) => {
               db
                 .get("songs")
                 .find({
-                  title: title,
+                  fulltitle: title,
                   username: username,
                 })
                 .value()
@@ -202,6 +202,8 @@ io.on("connection", (socket) => {
             }
 
             try {
+
+              let fulltitle = title
               // CLEAN TITLE
 
               const reg = /[([](?![pP]rod|[fF](ea)?t).+?[)\]]/gm;
@@ -240,6 +242,7 @@ io.on("connection", (socket) => {
                             media: path + "metmusic-" + generatedId + ".webm",
                             thumbnail: json.thumbnail_url,
                             username: username,
+                            fulltitle: fulltitle
                           })
                           .write();
 

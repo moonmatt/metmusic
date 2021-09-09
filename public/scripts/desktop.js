@@ -308,18 +308,15 @@ socket.on('newSongs', (songs) => {
         document.getElementById('songs-list').appendChild(newDiv);
 
     });
-
     if(songs.length > 10){
         var arr = [];
         while(arr.length < 5){
             var r = Math.floor(Math.random() * songs.length) + 1;
             if(arr.indexOf(r) === -1) arr.push(r);
         }
-        console.log(arr);
     
         arr.forEach(songIndex => {
             let blockSong = songs[songIndex]
-    
             const newDiv = document.createElement("div");
             newDiv.classList = `song blockID#${blockSong.id}`
             newDiv.setAttribute("onclick","playSong('" + blockSong.id + "')");
@@ -348,8 +345,27 @@ socket.on('newSongs', (songs) => {
 
 })
 
+function searchPopup(){
+    document.getElementById('search-popup').style.display = 'flex'
+}
+function closeSearchPopup(){
+    document.getElementById('search-popup').style.display = 'none'
+    document.getElementById('search-input').value = ''
+    // reset
+    document.getElementById('songs-list').style.display = 'block'
+    document.getElementById('searchSongs-list').style.display = 'none'
+    document.querySelectorAll('.search-item').forEach(e => e.remove());
 
+}
+function MobileUploadButtons(){
+    document.getElementById('mobile-upload-buttons').style.display = 'flex'
+}
+function closeMobileUploadButtons(){
+    console.log('chiuditi dio boo')
+    document.getElementById('mobile-upload-buttons').style.display = 'none'
+}
 function uploadPopup(){
+    document.getElementById('mobile-upload-buttons').style.display = 'none'
     document.getElementById('upload-popup').style.display = 'flex'
 }
 function closeUploadPopup(){
@@ -366,17 +382,19 @@ function uploadSong(){
     }
 }
 function youtubePopup(){
+    document.getElementById('mobile-upload-buttons').style.display = 'none'
     document.getElementById('youtube-popup').style.display = 'flex'
 }
 function closeYoutubePopup(){
-    document.getElementById('youtube-popup').style.display = 'none'
     let query = document.getElementById('youtube-title').value = ''
+    document.getElementById('youtube-popup').style.display = 'none'
 }
 function youtubeSearch(){
     let query = document.getElementById('youtube-title').value
     if(query){
         document.querySelectorAll('.searched').forEach(e => e.remove());
         socket.emit('youtube-search', (query))
+        createAlert('Please wait...')
         closeYoutubePopup()
     }
 }
@@ -407,7 +425,7 @@ function closeYoutubeResultsPopup(){
 
 function easyUpload(url){
     socket.emit('upload', ({songLink: url, username: username}))
-    createAlert('Uploading song...')
+    createAlert('Downloading song...')
 }
 
 function logout(){
