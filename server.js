@@ -21,19 +21,12 @@ app.use(express.urlencoded({
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
-const adapter = new FileSync("db.json");
-const db = low(adapter);
-
 // socket
 
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-// Set some defaults (required if your JSON file is empty)
-db.defaults({
-  users: [],
-  songs: [],
-}).write();
+let db = require('./database.js')
 
 app.get("/stream/:song", function (req, res) {
   var song = req.params.song;

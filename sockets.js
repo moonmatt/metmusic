@@ -1,10 +1,4 @@
 // Sockets module
-// DATABASE
-const low = require("lowdb");
-const FileSync = require("lowdb/adapters/FileSync");
-
-const adapter = new FileSync("db.json");
-const db = low(adapter);
 
 const fs = require("fs");
 const youtubedl = require("youtube-dl-exec");
@@ -14,6 +8,9 @@ const { nanoid } = require("nanoid");
 const youtube = require("youtube-metadata-from-url");
 const ytsr = require("ytsr");
 const getArtistTitle = require("get-artist-title");
+
+// DATABASE
+let db = require('./database.js')
 
 function getShortTitle(titolo) {
     try {
