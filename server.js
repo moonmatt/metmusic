@@ -6,7 +6,6 @@ const fs = require("fs");
 const ejs = require("ejs");
 const http = require("http");
 const server = http.createServer(app);
-const axios = require('axios');
 const download = require('download')
 
 app.use(cors());
@@ -90,35 +89,11 @@ app.get("/", (req, res) => {
   res.render("desktop.ejs");
 });
 
-app.get('/download', async (req, res) => {
-    // // Url of the image
-    // const file = 'https://raw.githubusercontent.com/moonmatt/metmusic/main/server.js';
-    // // Path at which image will get downloaded
-    // const filePath = `./dw/`;
-    
-    // download(file,filePath)
-    // .then(() => {
-    //     console.log('Download Completed');
-    // })
-
-
-    axios.get('https://raw.githubusercontent.com/moonmatt/metmusic/main/version.txt').then(function (response) {
-        let onlineVersion = response.data.trim()
-        let localVersion = fs.readFileSync('./version.txt', 'utf8').trim()
-        
-        if(onlineVersion > localVersion){
-            // needs update
-            console.log('AGGIORNA')
-        } else {
-            console.log('NON AGGIORNARE')
-        }
-
-
-        const file = '';
+app.get('/update', async (req, res) => {
+        const file = 'https://github.com/moonmatt/metmusic/archive/refs/heads/main.zip';
         const filePath = `./temp/`;
         let options = {
-            extract: true,
-            filename: 'archivio.zip'
+            extract: true
         }
         download(file,filePath, options)
         .then((data) => {
@@ -126,8 +101,19 @@ app.get('/download', async (req, res) => {
             let path = data[0].path
             let fullpath = './temp/' + path
 
+            console.log(path)
+
+            fs.rmdirSync(fullpath, { recursive: true });
             let filesToUpdate = [
-                'server.js', 'sockets.js', 'version.txt', 'database.js', 'views/', 'public/css/', 'public/scripts', 'public/metmusic.png'
+                'server.js', 
+                'sockets.js', 
+                'version.txt', 
+                'database.js', 
+                'views/desktop.ejs', 
+                'public/css/desktop.css', 
+                'public/scripts/desktop.js', 
+                'public/metmusic.png',
+                'README.md'
             ]
 
             // update server.js
@@ -137,17 +123,20 @@ app.get('/download', async (req, res) => {
                     console.log('Successfully moved!')
                 })
             })
+            res.send('You have succesfully updated metmusic! Please read the console')
+            console.log("@###################@");
+            console.log("@  UPDATE FINISHED  @");
+            console.log("@###################@");
+            console.log('Please type `npm i`')
+            console.log('Then start the server again!')
+            process.exit()
 
         })
-
-      })
-  
-
 })
 
 // SERVER
 server.listen(8888, () => {
   console.log("@##################@");
-  console.log("@ STARTER METMUSIC @");
+  console.log("@ STARTED METMUSIC @");
   console.log("@##################@");
 });
