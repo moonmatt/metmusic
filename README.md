@@ -38,6 +38,7 @@ Then checks the database and if everything is correct, sends back to the client 
     author: // the author
     media: // the link to the media src
     thumbnail: // the youtube thumbnail 
+    fulltitle: // used only to avoid downloading the same song multiple times
     })
 
  And then the client
