@@ -381,6 +381,7 @@ a {
     margin-top: 15px;
     border-radius: 5px;
     z-index: 999999999999999999999999999999999999999999999999999999999999999999999999;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .youtube-result-songs .song-item {
