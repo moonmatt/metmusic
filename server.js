@@ -7,7 +7,7 @@ const ejs = require("ejs");
 const http = require("http");
 const server = http.createServer(app);
 const axios = require('axios');
-
+const download = require('download')
 
 app.use(cors());
 app.set("view engine", "ejs");
@@ -103,8 +103,43 @@ app.get('/download', async (req, res) => {
 
 
     axios.get('https://raw.githubusercontent.com/moonmatt/metmusic/main/version.txt').then(function (response) {
-        // handle success
-        console.log(response.data);
+        let onlineVersion = response.data.trim()
+        let localVersion = fs.readFileSync('./version.txt', 'utf8').trim()
+        
+        if(onlineVersion > localVersion){
+            // needs update
+            console.log('AGGIORNA')
+        } else {
+            console.log('NON AGGIORNARE')
+        }
+
+
+        const file = '';
+        const filePath = `./temp/`;
+        let options = {
+            extract: true,
+            filename: 'archivio.zip'
+        }
+        download(file,filePath, options)
+        .then((data) => {
+            console.log('Download Completed');
+            let path = data[0].path
+            let fullpath = './temp/' + path
+
+            let filesToUpdate = [
+                'server.js', 'sockets.js', 'version.txt', 'database.js', 'views/', 'public/css/', 'public/scripts', 'public/metmusic.png'
+            ]
+
+            // update server.js
+            filesToUpdate.forEach(file => {
+                fs.rename(fullpath + file, file, function (err) {
+                    if (err) throw err
+                    console.log('Successfully moved!')
+                })
+            })
+
+        })
+
       })
   
 
