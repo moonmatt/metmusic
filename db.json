@@ -1,60 +1,6 @@
 {
   "songs": [
     {
-      "id": "6TTOsVthptuL-tUpLFhXe",
-      "title": "Madame, Sfera Ebbasta - TU MI HAI CAPITO ",
-      "shortTitle": "TU MI HAI CAPITO",
-      "author": "Madame",
-      "media": "public/songs/metmusic-6TTOsVthptuL-tUpLFhXe.webm",
-      "thumbnail": "https://i.ytimg.com/vi/SetXjv0_vv4/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
-      "id": "onKay4A9KEwT8f5Tbi7N0",
-      "title": "167 Gang - Piazza Di Spaccio  ft. Simba La Rue",
-      "shortTitle": "Piazza Di Spaccio  ft. Simba La Rue",
-      "author": "167GANG",
-      "media": "public/songs/metmusic-onKay4A9KEwT8f5Tbi7N0.webm",
-      "thumbnail": "https://i.ytimg.com/vi/mjzl2a57YcM/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
-      "id": "iiGUCE3ez4tV36uwzSs3j",
-      "title": "Sfera Ebbasta - 20 Collane ",
-      "shortTitle": "20 Collane",
-      "author": "SferaEbbasta",
-      "media": "public/songs/metmusic-iiGUCE3ez4tV36uwzSs3j.webm",
-      "thumbnail": "https://i.ytimg.com/vi/5o6p3KBr8ao/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
-      "id": "xRM53EQWZgW6x9GnrF179",
-      "title": "VillaBanks - Dirty Sì ",
-      "shortTitle": "Dirty Sì",
-      "author": "Villabanks",
-      "media": "public/songs/metmusic-xRM53EQWZgW6x9GnrF179.webm",
-      "thumbnail": "https://i.ytimg.com/vi/1KgBQB-ljOk/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
-      "id": "EYQ1jXxOjAFf_CIKz7JYl",
-      "title": "Cagoule",
-      "shortTitle": "Cagoule",
-      "author": "Simba La Rue ",
-      "media": "public/songs/metmusic-EYQ1jXxOjAFf_CIKz7JYl.webm",
-      "thumbnail": "https://i.ytimg.com/vi/eGPAanfaWm4/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
-      "id": "5VwIfcswD2LbXDJWz30Fy",
-      "title": "Baby Gang - King Kong (feat. Omar) ",
-      "shortTitle": "King Kong (feat. Omar)",
-      "author": "Baby Gang",
-      "media": "public/songs/metmusic-5VwIfcswD2LbXDJWz30Fy.webm",
-      "thumbnail": "https://i.ytimg.com/vi/wjyyDs0WJt0/hqdefault.jpg",
-      "username": "andrea"
-    },
-    {
       "id": "gSHfUfVL4QihF7SNtItnO",
       "title": "Tredici Pietro - BOLO (prod. Andry The Hitmaker)",
       "shortTitle": "BOLO (prod. Andry The Hitmaker)",
@@ -1153,6 +1099,206 @@
       "thumbnail": "https://i.ytimg.com/vi/hT3elf3cm6w/hqdefault.jpg",
       "username": "matteo",
       "fulltitle": "24H"
+    },
+    {
+      "id": "Ltey8v_b9UANneT4kyykJ",
+      "title": "Vasco Rossi - Eh...già",
+      "shortTitle": "Eh...già",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-Ltey8v_b9UANneT4kyykJ.webm",
+      "thumbnail": "https://i.ytimg.com/vi/1CydZtP_XlA/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Eh...già"
+    },
+    {
+      "id": "rMFwfMKBeuXyGuNMFZCMR",
+      "title": "Vasco Rossi - E...",
+      "shortTitle": "E...",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-rMFwfMKBeuXyGuNMFZCMR.webm",
+      "thumbnail": "https://i.ytimg.com/vi/wYMuL0z2uJk/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - E..."
+    },
+    {
+      "id": "NdPAdWaxfVuYSmDPv_YVE",
+      "title": "vasco rossi - un senso",
+      "shortTitle": "un senso",
+      "author": "bellabionda86",
+      "media": "public/songs/metmusic-NdPAdWaxfVuYSmDPv_YVE.webm",
+      "thumbnail": "https://i.ytimg.com/vi/pG06PZ91wlA/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "vasco rossi - un senso"
+    },
+    {
+      "id": "B-ZgbcMEoxfGUWmWQt-d_",
+      "title": "Vasco Rossi - Ridere Di Te",
+      "shortTitle": "Ridere Di Te",
+      "author": "profumodimare5",
+      "media": "public/songs/metmusic-B-ZgbcMEoxfGUWmWQt-d_.webm",
+      "thumbnail": "https://i.ytimg.com/vi/gGCheT_1Wt0/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Ridere Di Te"
+    },
+    {
+      "id": "B_RZ-d4w1ycL9rZHB4OqD",
+      "title": "Vasco Rossi - Vivere",
+      "shortTitle": "Vivere",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-B_RZ-d4w1ycL9rZHB4OqD.webm",
+      "thumbnail": "https://i.ytimg.com/vi/UI7lFaF_owk/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Vivere"
+    },
+    {
+      "id": "2kCcAgvQw2xdKJ1ETbS-U",
+      "title": "Vasco Rossi - Siamo Soli",
+      "shortTitle": "Siamo Soli",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-2kCcAgvQw2xdKJ1ETbS-U.webm",
+      "thumbnail": "https://i.ytimg.com/vi/KyUMRz1-JFo/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Siamo Soli"
+    },
+    {
+      "id": "DTTbDecjYhGQKbqYDiySR",
+      "title": "Vasco Rossi - T'immagini",
+      "shortTitle": "T'immagini",
+      "author": "JUFAN",
+      "media": "public/songs/metmusic-DTTbDecjYhGQKbqYDiySR.webm",
+      "thumbnail": "https://i.ytimg.com/vi/lqeFumQg61w/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - T'immagini"
+    },
+    {
+      "id": "SFGfY60C8aJU50vkNDgjm",
+      "title": "VASCO ROSSI - BRAVA",
+      "shortTitle": "BRAVA",
+      "author": "LaCatanese",
+      "media": "public/songs/metmusic-SFGfY60C8aJU50vkNDgjm.webm",
+      "thumbnail": "https://i.ytimg.com/vi/H7RmEKgQ0z0/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "VASCO ROSSI - BRAVA"
+    },
+    {
+      "id": "pOqCD_4cLGmvk4TEjprH9",
+      "title": "Vasco Rossi - Dillo alla luna",
+      "shortTitle": "Dillo alla luna",
+      "author": "La Scrutatrice Schiva",
+      "media": "public/songs/metmusic-pOqCD_4cLGmvk4TEjprH9.webm",
+      "thumbnail": "https://i.ytimg.com/vi/Ee4heiOkTcg/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Dillo alla luna"
+    },
+    {
+      "id": "oNma_x6EP50RwmRqFNAdX",
+      "title": "Vasco Rossi - .....Stupendo ",
+      "shortTitle": ".....Stupendo",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-oNma_x6EP50RwmRqFNAdX.webm",
+      "thumbnail": "https://i.ytimg.com/vi/AljKdvZ2F5A/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - .....Stupendo (Live)"
+    },
+    {
+      "id": "vX99097jqV34f7IR5Adc3",
+      "title": "Vasco Rossi - Vieni Qui",
+      "shortTitle": "Vieni Qui",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-vX99097jqV34f7IR5Adc3.webm",
+      "thumbnail": "https://i.ytimg.com/vi/vIDV5DhnFzU/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Vieni Qui"
+    },
+    {
+      "id": "ltYA0x3tc_aazJLPXqyxB",
+      "title": "Vasco Rossi - Senza Parole",
+      "shortTitle": "Senza Parole",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-ltYA0x3tc_aazJLPXqyxB.webm",
+      "thumbnail": "https://i.ytimg.com/vi/h3BLi9h-Ygw/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Senza Parole"
+    },
+    {
+      "id": "Ee0nJxop4U5bFQHj5L59U",
+      "title": "Vasco Rossi - Sally",
+      "shortTitle": "Sally",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-Ee0nJxop4U5bFQHj5L59U.webm",
+      "thumbnail": "https://i.ytimg.com/vi/iVAZezs0H9s/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Sally"
+    },
+    {
+      "id": "xHgizx9GXB-6Jc79zgIWs",
+      "title": "Vasco Rossi - Liberi Liberi",
+      "shortTitle": "Liberi Liberi",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-xHgizx9GXB-6Jc79zgIWs.webm",
+      "thumbnail": "https://i.ytimg.com/vi/RHvSCTKyfZI/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Liberi Liberi"
+    },
+    {
+      "id": "-xfIgpIHHuhD5iJCcgw4Q",
+      "title": "Vasco Rossi - Sto Pensando A Te",
+      "shortTitle": "Sto Pensando A Te",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic--xfIgpIHHuhD5iJCcgw4Q.webm",
+      "thumbnail": "https://i.ytimg.com/vi/VKyCs8XXo-Q/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Sto Pensando A Te"
+    },
+    {
+      "id": "lmfBxFI25VrENIMt0rWex",
+      "title": "Vasco Rossi - Ogni Volta",
+      "shortTitle": "Ogni Volta",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-lmfBxFI25VrENIMt0rWex.webm",
+      "thumbnail": "https://i.ytimg.com/vi/5upV7oKafHU/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Ogni Volta"
+    },
+    {
+      "id": "XYJU90mEkushZf9cW_dJI",
+      "title": "Vasco Rossi - Rewind",
+      "shortTitle": "Rewind",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-XYJU90mEkushZf9cW_dJI.webm",
+      "thumbnail": "https://i.ytimg.com/vi/QLsksff4vLI/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Rewind"
+    },
+    {
+      "id": "zkxbA06XbDHej28vCfxVs",
+      "title": "Vasco Rossi - Io No",
+      "shortTitle": "Io No",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-zkxbA06XbDHej28vCfxVs.webm",
+      "thumbnail": "https://i.ytimg.com/vi/KsfMFpW-cVY/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Io No"
+    },
+    {
+      "id": "22z9hzI-h8o5AZc5cSWG8",
+      "title": "Vasco Rossi - Quanti Anni Hai",
+      "shortTitle": "Quanti Anni Hai",
+      "author": "VascoRossi",
+      "media": "public/songs/metmusic-22z9hzI-h8o5AZc5cSWG8.webm",
+      "thumbnail": "https://i.ytimg.com/vi/i3SXl_uRLts/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Vasco Rossi - Quanti Anni Hai"
+    },
+    {
+      "id": "Xw0Tgce8722RzEMKNQDOU",
+      "title": "Dimmelo te-Vasco Rossi",
+      "shortTitle": "Vasco Rossi",
+      "author": "candygiuly",
+      "media": "public/songs/metmusic-Xw0Tgce8722RzEMKNQDOU.webm",
+      "thumbnail": "https://i.ytimg.com/vi/BpZhFyz8FTk/hqdefault.jpg",
+      "username": "andrea",
+      "fulltitle": "Dimmelo te-Vasco Rossi"
     }
   ],
   "users": [
