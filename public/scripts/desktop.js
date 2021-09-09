@@ -77,7 +77,7 @@ socket.on("music-play", (api) => {
   currentData.media = api.thumbnail;
   currentData.shortTitle = api.shortTitle;
 
-  audio.src = "http://metmusic.tk/stream/" + api.id;
+  audio.src = "/stream/" + api.id;
   document.title = api.shortTitle + " - " + api.author;
   audio.load();
   audio.play();
