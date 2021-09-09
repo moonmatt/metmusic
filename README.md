@@ -1,3 +1,7 @@
+
+
+
+
 # :musical_note: Welcome to metmusic! :musical_note:
 
 Hello, metmusic is an **open-source** and **self-hosted** music client like Spotify that allows you to download songs on your server and play music whenever you want, even offline.
@@ -11,11 +15,92 @@ The only things you need are:
  - Some free space on your disk to store your songs
 
 This project is actually developed only by me, but **feel free to make your changes** and work on it.
-If you like metmusic please consider making a donation!
+If you like metmusic please consider making a [donation](https://www.paypal.com/donate?hosted_button_id=AV6U38ZGQX3UQ)!
 # How to install
+First of all, you need to make sure that you have the following things installed on your server:
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+ - Node.js & Npm
+ - Nginx or Apache
+ - Git (not required)
 
+If you have git installed on your machine, you can start by cloning this repository using the following command:
+
+    git clone https://github.com/moonmatt/metmusic.git
+
+If you don't have git, you can simply download the latest release or the main code as a Zip file, move it on your server and then extract it.
+
+At this point simply open the folder called 'metmusic' and make sure to type 
+
+    npm install
+
+In order to install all the required packages to make the app work.
+Once it has finished installing all the necessary stuff, the software is ready to work, the **predefined port is 8888**, but you can change it to whatever you prefer.
+
+To do so, just open the main file called 'server.js', go to the last lines and change the number.
+
+  
+    
+    server.listen(8888,  ()  =>  {    // change this
+    console.log("@##################@"); 
+    console.log("@ STARTED METMUSIC @"); 
+    console.log("@##################@");
+    });
+Now you can point your domain/ip to it.
+
+At this point everything should be ready, to start the server execute the command
+
+    node server.js
+Now open your browser and go to your website, a page like this should appear.
+![enter image description here](https://i.ibb.co/JtPyqy8/Screenshot-2021-09-09-at-19-54-23-metmusic.png)
+
+# How to use
+metmusic is extremely simple, though there are some functionalities that need to be learned.
+### Login
+In order to listen to music, you have to be locally logged in. The first time you open the app it is going to ask you to select your username. (At the beginning only the username 'metmusic' is present).
+![enter image description here](https://i.ibb.co/PYFjzGX/Screenshot-2021-09-09-at-19-58-53-metmusic.png)Simply click on the Confirm button.
+
+### How to add new songs (from YouTube)
+You can add songs from YouTube by URL (also allows playlists) and by Search.
+The buttons are located in the sidebar on the left side.
+![enter image description here](https://i.ibb.co/WVCt7x5/Screenshot-2021-09-09-at-20-03-03-metmusic.png)
+### Controls
+There are 5 control buttons
+![enter image description here](https://i.ibb.co/xYGR3FX/Screenshot-2021-09-09-at-20-04-15-metmusic.png)The one on the left is the Shuffle button, it plays a random song, the three in the middle are respectively for Previous, Stop/Play and Skip.
+The one on the right is a toggle button: when toggled it is going to play random songs whenever a song ends or you skip one.
+
+### How to create a new profile
+In order to create a new profile, go to the local files, open the file called 'db.json' and insert  a new object inside 'users'
+
+      "users": [
+    {
+      "username": "metmusic" // default one
+    }, 
+    {
+	  "username": "INSERT HERE YOUR NEW USERNAME"
+    }
+Save and restart the server
+
+### How to keep the server running
+If you want to keep the server running even when you are not connected to it through SSH, type on the console
+
+    npm install pm2 -g 
+
+and then
+
+    pm2 start server.js
+
+Now the server is going to keep running, but what if you want to stop it? It's easy! Simply type
+
+    pm2 stop server.js
+
+### How to update metmusic?
+metmusic often gets new updates, in order to install them, go to your website where the app is installed but add '/update', let me show you an example.
+
+    yourhost.met/update
+And then follow what the console tells you to do, so
+
+    npm i
+and restart the server.
 # Development
 This is a helpful guide on how metmusic works and how to make changes to it.
 ## How it works
@@ -179,4 +264,5 @@ The server receives the request and sends back the songs
 Now the client gets the results and shows them in the DOM
 
     socket.on('newSongs',  (songs)  =>  {...
+
 
