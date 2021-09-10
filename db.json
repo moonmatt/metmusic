@@ -1,6 +1,8 @@
 {
   "users": [
-    {"username": "metmusic"}
+    {
+      "username": "metmusic"
+    }
   ],
   "songs": []
 }

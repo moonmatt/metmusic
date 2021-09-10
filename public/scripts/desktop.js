@@ -222,7 +222,7 @@ socket.on("search-result", (songs) => {
 
     const newDivSong = document.createElement("div");
     newDivSong.setAttribute("onclick", "playSong('" + song.id + "')");
-    newDivSong.innerHTML = song.title;
+    newDivSong.innerHTML = song.author + ' - ' + song.shortTitle;
 
     const newDivIconEnd = document.createElement("div");
     newDivIconEnd.classList = "icon-end";

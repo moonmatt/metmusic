@@ -2,6 +2,7 @@
 
 public/songs
 db.json
+package-lock.json
 
 # Logs
 logs
