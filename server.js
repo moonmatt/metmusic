@@ -101,9 +101,6 @@ app.get('/update', async (req, res) => {
             let path = data[0].path
             let fullpath = './temp/' + path
 
-            console.log(path)
-
-            fs.rmdirSync(fullpath, { recursive: true });
             let filesToUpdate = [
                 'server.js', 
                 'sockets.js', 
@@ -123,13 +120,14 @@ app.get('/update', async (req, res) => {
                     console.log('Successfully moved!')
                 })
             })
+            fs.rmdirSync(fullpath, { recursive: true });
             res.send('You have succesfully updated metmusic! Please read the console')
             console.log("@###################@");
             console.log("@  UPDATE FINISHED  @");
             console.log("@###################@");
-            console.log('Please type `npm i`')
+            console.log('Please stop the current server')
+            console.log('and type `npm i`')
             console.log('Then start the server again!')
-            process.exit()
 
         })
 })
