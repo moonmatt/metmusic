@@ -115,7 +115,7 @@ app.get('/update', async (req, res) => {
 
             // update server.js
             filesToUpdate.forEach(file => {
-                fs.rename(fullpath + file, file, function (err) {
+                fs.rename(fullpath + file, './' + file, function (err) {
                     if (err) throw err
                     console.log('Successfully moved!')
                 })
