@@ -43,7 +43,9 @@ function saveUsername() {
 }
 
 let currentSong;
+let queue = [];
 let currentData = {};
+let nextSongsQueue = [];
 
 let loop = false;
 
@@ -81,6 +83,10 @@ socket.on("music-play", (api) => {
   document.title = api.shortTitle + " - " + api.author;
   audio.load();
   audio.play();
+
+// add to queue
+  queue.push(api.id)
+  console.log(queue)
 
   document.getElementById("side-title").innerHTML = api.shortTitle;
   document.getElementById("side-author").innerHTML = api.author;
@@ -126,18 +132,29 @@ socket.on("music-play", (api) => {
 
 function playSong(id) {
   socket.emit("music", id);
+  // add song to queue
 }
 
 function skip() {
-  if (loop) {
-    random();
-  } else {
-    socket.emit("skip", { songId: currentSong, username: username });
+  if(nextSongsQueue.length > 0){
+    playSong(nextSongsQueue[0])
+    nextSongsQueue.shift()
+  }else {
+    if (loop) {
+      random();
+    } else {
+      socket.emit("skip", { songId: currentSong, username: username });
+    }
   }
 }
 
 function previous() {
-  socket.emit("previous", { songId: currentSong, username: username });
+  if(queue.length <= 1){
+    socket.emit("previous", { songId: currentSong, username: username });
+  }
+  playSong(queue.slice(-2, -1)[0])
+  queue.pop()
+  queue.pop()
 }
 function random() {
   socket.emit("random", username);
@@ -145,6 +162,9 @@ function random() {
 
 function deleteSong(id) {
   socket.emit("delete", id);
+  document.getElementById('menusong-popup').style.display = "none"
+  createAlert("The song has been deleted!");
+
 }
 socket.on("deleted", (id) => {
   document.getElementById(id).remove();
@@ -184,6 +204,11 @@ function getMinute(time) {
   }
   var fixedCurrentTime = minutes + ":" + seconds;
   return fixedCurrentTime;
+}
+
+function addQueue(id){
+  nextSongsQueue.push(id)
+  createAlert("Added to Queue!");
 }
 
 function search(value) {
@@ -227,8 +252,8 @@ socket.on("search-result", (songs) => {
     const newDivIconEnd = document.createElement("div");
     newDivIconEnd.classList = "icon-end";
     newDivIconEnd.style.zIndex = "999";
-    newDivIconEnd.innerHTML = '<ion-icon name="trash"></ion-icon>';
-    newDivIconEnd.setAttribute("onclick", "deleteSong('" + song.id + "')");
+    newDivIconEnd.innerHTML = '<ion-icon name="menu"></ion-icon>';
+    newDivIconEnd.setAttribute("onclick", "menuSong('" + song.id + "')");
 
     newDiv.appendChild(newDivIcon);
     newDiv.appendChild(newDivSong);
@@ -254,8 +279,8 @@ socket.on("upload-update", (song) => {
   const newDivIconEnd = document.createElement("div");
   newDivIconEnd.classList = "icon-end";
   newDivIconEnd.style.zIndex = "999";
-  newDivIconEnd.innerHTML = '<ion-icon name="trash"></ion-icon>';
-  newDivIconEnd.setAttribute("onclick", "deleteSong('" + song.id + "')");
+  newDivIconEnd.innerHTML = '<ion-icon name="menu"></ion-icon>';
+  newDivIconEnd.setAttribute("onclick", "menuSong('" + song.id + "')");
 
   newDiv.appendChild(newDivIcon);
   newDiv.appendChild(newDivSong);
@@ -284,8 +309,8 @@ socket.on("newSongs", (songs) => {
     const newDivIconEnd = document.createElement("div");
     newDivIconEnd.classList = "icon-end";
     newDivIconEnd.style.zIndex = "999";
-    newDivIconEnd.innerHTML = '<ion-icon name="trash"></ion-icon>';
-    newDivIconEnd.setAttribute("onclick", "deleteSong('" + song.id + "')");
+    newDivIconEnd.innerHTML = '<ion-icon name="menu"></ion-icon>';
+    newDivIconEnd.setAttribute("onclick", "menuSong('" + song.id + "')");
 
     newDiv.appendChild(newDivIcon);
     newDiv.appendChild(newDivSong);
@@ -410,6 +435,17 @@ function easyUpload(url) {
 function logout() {
   Cookies.remove("username");
   location.reload();
+}
+
+function menuSong(id){
+  document.getElementById('menusong-popup').style.display = "flex";
+  document.querySelector('#menusong-popup > div:nth-child(1) > div:nth-child(2)').id = id
+  document.querySelector('#menusong-popup > div:nth-child(1) > div:nth-child(3)').id = id
+}
+function menuSongClose(){
+  document.querySelector('#menusong-popup > div:nth-child(1) > div:nth-child(2)').id = ''
+  document.querySelector('#menusong-popup > div:nth-child(1) > div:nth-child(3)').id = ''
+  document.getElementById('menusong-popup').style.display = "none"
 }
 
 // MESSAGE HANDLER

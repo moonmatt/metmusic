@@ -176,7 +176,16 @@
             </div>
         </div>
 
-<div id="alerts">
+        <div class="popup" id="menusong-popup">
+            <div class="content">
+                <h2>Manage song</h2>
+                <div class="button" id='' class='deleteSongItemPopup' onclick="deleteSong(this.id)" style="float: none; margin-left: 0;"><ion-icon name="trash"></ion-icon> Delete Song</div>
+                <div class="button" id='' class='addQueueSongItemPopup' onclick="addQueue(this.id)" style="float: none; margin-left: 0;"><ion-icon name="headset"></ion-icon> Add to Queue</div>
+                <div class="button" onclick="menuSongClose()">Close</div>
+            </div>
+        </div>
+
+<div id="alerts"> 
 </div>
 
 <script src="scripts/alerter.js"></script>
