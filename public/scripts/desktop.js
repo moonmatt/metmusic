@@ -54,16 +54,9 @@ socket.on('connect_error', err => notConnected());
 socket.on('connect_failed', err => notConnected());
 socket.on('disconnect', err => notConnected());
 
-// function ciao(){
-//   socket.emit('connection-check')
-//   notConnected()
-//   setTimeout(function(){ ciao()}, 3000);
-// }
-// ciao()
-
-// socket.on('connection-check-client', () => {
-//   document.getElementById('connection').style.background = 'green'
-// })
+socket.on('connection', () => {
+  document.getElementById('connection').style.background = 'green'
+})
 
 let currentSong;
 let queue = [];
