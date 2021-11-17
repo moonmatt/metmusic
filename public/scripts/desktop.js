@@ -4,8 +4,13 @@ document.getElementById("bar").value = 0;
 // socket
 var socket = io();
 socket.on("connect", () => {
+<<<<<<< HEAD
   console.log("connesso");
   document.getElementById('connection').style.background = '#2ecc71'
+=======
+  console.log("Connected");
+  document.getElementById('connection').style.background = 'green'
+>>>>>>> 007e25ddfd3b322f9d7cc0fd6410858fad623209
 });
 // Cookies
 
