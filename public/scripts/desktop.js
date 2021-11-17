@@ -4,7 +4,8 @@ document.getElementById("bar").value = 0;
 // socket
 var socket = io();
 socket.on("connect", () => {
-  console.log("connesso");
+  console.log("Connected");
+  document.getElementById('connection').style.background = 'green'
 });
 // Cookies
 
@@ -53,10 +54,6 @@ socket.on('update', data => console.log(data));
 socket.on('connect_error', err => notConnected());
 socket.on('connect_failed', err => notConnected());
 socket.on('disconnect', err => notConnected());
-
-socket.on('connection', () => {
-  document.getElementById('connection').style.background = 'green'
-})
 
 let currentSong;
 let queue = [];
