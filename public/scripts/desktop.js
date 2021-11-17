@@ -5,6 +5,7 @@ document.getElementById("bar").value = 0;
 var socket = io();
 socket.on("connect", () => {
   console.log("connesso");
+  document.getElementById('connection').style.background = '#2ecc71'
 });
 // Cookies
 
@@ -45,7 +46,7 @@ function saveUsername() {
 
 function notConnected(){
   // do whatever you like here
-  document.getElementById('connection').style.background = 'red'
+  document.getElementById('connection').style.background = '#c0392b'
 }
 
 socket.on('update', data => console.log(data));
@@ -53,17 +54,6 @@ socket.on('update', data => console.log(data));
 socket.on('connect_error', err => notConnected());
 socket.on('connect_failed', err => notConnected());
 socket.on('disconnect', err => notConnected());
-
-function ciao(){
-  socket.emit('connection-check')
-  notConnected()
-  setTimeout(function(){ ciao()}, 3000);
-}
-ciao()
-
-socket.on('connection-check-client', () => {
-  document.getElementById('connection').style.background = 'green'
-})
 
 let currentSong;
 let queue = [];

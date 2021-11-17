@@ -409,11 +409,16 @@ a {
 }
 
 #connection {
+    opacity: 1;
+    z-index: 99999999999999999999999999;
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 0;
+    padding: 5px;
     width: 15px;
     height: 15px;
+    border-radius: 5px;
+    color: #eee;
     margin: 15px;
     background-color: #1F1F1F;
 }
