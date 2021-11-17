@@ -398,5 +398,9 @@ io.on("connection", (socket) => {
   
       socket.emit("youtube-results", searchedResults5);
     });
+  socket.on("connection-check", () => {
+      socket.emit("connection-check-client");
+  })
+
   });
 }

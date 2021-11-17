@@ -133,7 +133,7 @@ app.get('/update', async (req, res) => {
 })
 
 // SERVER
-server.listen(0009, () => {
+server.listen(8888, () => {
   console.log("@##################@");
   console.log("@ STARTED METMUSIC @");
   console.log("@##################@");

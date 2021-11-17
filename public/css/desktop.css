@@ -408,6 +408,15 @@ a {
     z-index: 999999999999999;
 }
 
+#connection {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    margin: 15px;
+    background-color: #1F1F1F;
+}
   /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
