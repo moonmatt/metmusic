@@ -123,11 +123,7 @@ io.on("connection", (socket) => {
                 getShortTitle(title).then((shortTitle) => {
                   try {
                     youtubedl("https://www.youtube.com/watch?v=" + id, {
-<<<<<<< HEAD
                       f: 249, 
-=======
-                      f: 249, // audio with minimal size
->>>>>>> 106bc3db9e7a64e73cd1d6b832a437f857b0c072
                       o: pathname,
                       q: true,
                     }).then((output) => {
