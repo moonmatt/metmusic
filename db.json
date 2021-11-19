@@ -4,5 +4,26 @@
       "username": "metmusic"
     }
   ],
-  "songs": []
+  "songs": [
+    {
+      "id": "ZQUIWRQkFx0EID2AsFU8d",
+      "title": "Opinel",
+      "shortTitle": "Opinel",
+      "author": "SIMBA LA RUE ",
+      "media": "public/songs/metmusic-ZQUIWRQkFx0EID2AsFU8d.webm",
+      "thumbnail": "https://i.ytimg.com/vi/AHkeVF8XTlc/hqdefault.jpg",
+      "username": "metmusic",
+      "fulltitle": "Opinel"
+    },
+    {
+      "id": "3C8aRVyCHBCuzTHtcxcuU",
+      "title": "Uh Ah Hey",
+      "shortTitle": "Uh Ah Hey",
+      "author": "Sfera Ebbasta ",
+      "media": "public/songs/metmusic-3C8aRVyCHBCuzTHtcxcuU.webm",
+      "thumbnail": "https://i.ytimg.com/vi/U_41aNa4G2c/hqdefault.jpg",
+      "username": "metmusic",
+      "fulltitle": "Uh Ah Hey"
+    }
+  ]
 }

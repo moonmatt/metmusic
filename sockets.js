@@ -123,7 +123,7 @@ io.on("connection", (socket) => {
                 getShortTitle(title).then((shortTitle) => {
                   try {
                     youtubedl("https://www.youtube.com/watch?v=" + id, {
-                      f: 251,
+                      f: 249, 
                       o: pathname,
                       q: true,
                     }).then((output) => {

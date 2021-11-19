@@ -4,13 +4,10 @@ document.getElementById("bar").value = 0;
 // socket
 var socket = io();
 socket.on("connect", () => {
-<<<<<<< HEAD
   console.log("connesso");
   document.getElementById('connection').style.background = '#2ecc71'
-=======
   console.log("Connected");
   document.getElementById('connection').style.background = 'green'
->>>>>>> 007e25ddfd3b322f9d7cc0fd6410858fad623209
 });
 // Cookies
 
@@ -104,7 +101,6 @@ socket.on("music-play", (api) => {
 
 // add to queue
   queue.push(api.id)
-  console.log(queue)
 
   document.getElementById("side-title").innerHTML = api.shortTitle;
   document.getElementById("side-author").innerHTML = api.author;
@@ -258,14 +254,22 @@ socket.on("search-result", (songs) => {
     newDiv.id = song.id;
     newDiv.classList = "song-item search-item";
 
-    const newDivIcon = document.createElement("div");
-    newDivIcon.classList = "icon-start";
-    newDivIcon.id = "icon-start";
-    newDivIcon.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
-
     const newDivSong = document.createElement("div");
     newDivSong.setAttribute("onclick", "playSong('" + song.id + "')");
-    newDivSong.innerHTML = song.author + ' - ' + song.shortTitle;
+    newDivSong.classList = 'song-div'
+
+    const newDivIcon = document.createElement("img");
+    newDivIcon.classList = "icon-start";
+    newDivIcon.id = "icon-start";
+    newDivIcon.src = song.thumbnail
+
+    const newDivSongTitle = document.createElement('div')
+    newDivSongTitle.classList = 'song-title'
+    newDivSongTitle.innerHTML = song.shortTitle
+
+    const newDivSongAuthor = document.createElement('div')
+    newDivSongAuthor.classList = 'song-author'
+    newDivSongAuthor.innerHTML = song.author
 
     const newDivIconEnd = document.createElement("div");
     newDivIconEnd.classList = "icon-end";
@@ -274,7 +278,10 @@ socket.on("search-result", (songs) => {
     newDivIconEnd.setAttribute("onclick", "menuSong('" + song.id + "')");
 
     newDiv.appendChild(newDivIcon);
+
     newDiv.appendChild(newDivSong);
+    newDivSong.appendChild(newDivSongTitle);
+    newDivSong.appendChild(newDivSongAuthor);
     newDiv.appendChild(newDivIconEnd);
     document.getElementById("searchSongs-list").appendChild(newDiv);
   });
@@ -315,14 +322,22 @@ socket.on("newSongs", (songs) => {
     newDiv.id = song.id;
     newDiv.classList = "song-item";
 
-    const newDivIcon = document.createElement("div");
+    const newDivIcon = document.createElement("img");
     newDivIcon.classList = "icon-start";
     newDivIcon.id = "icon-start";
-    newDivIcon.innerHTML = '<ion-icon name="musical-notes"></ion-icon>';
+    newDivIcon.src = song.thumbnail
 
     const newDivSong = document.createElement("div");
     newDivSong.setAttribute("onclick", "playSong('" + song.id + "')");
-    newDivSong.innerHTML = song.author + " - " + song.shortTitle;
+    newDivSong.classList = 'song-div'
+
+    const newDivSongTitle = document.createElement('div')
+    newDivSongTitle.classList = 'song-title'
+    newDivSongTitle.innerHTML = song.shortTitle
+
+    const newDivSongAuthor = document.createElement('div')
+    newDivSongAuthor.classList = 'song-author'
+    newDivSongAuthor.innerHTML = song.author
 
     const newDivIconEnd = document.createElement("div");
     newDivIconEnd.classList = "icon-end";
@@ -332,6 +347,8 @@ socket.on("newSongs", (songs) => {
 
     newDiv.appendChild(newDivIcon);
     newDiv.appendChild(newDivSong);
+    newDivSong.appendChild(newDivSongTitle);
+    newDivSong.appendChild(newDivSongAuthor);
     newDiv.appendChild(newDivIconEnd);
     document.getElementById("songs-list").appendChild(newDiv);
   });

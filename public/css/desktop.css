@@ -267,11 +267,23 @@ textarea:focus, input:focus{
     padding: 15px 0px 15px 20px;
     color: #eee;
     display: grid;
-    grid-template-columns: 2% auto 10%;
+    grid-template-columns: 5% auto 10%;
     cursor: default;
     background-color: #262626;
     margin-top: 10px;
     border-radius: 5px;
+}
+.box .song-item .song-div {
+    display:inherit;align-items:center;
+}
+.box .song-item .song-title{
+    font-weight: bold;
+    /* width: 100%; */
+}
+    
+.box .song-item .song-author{
+    font-weight: lighter;
+    margin-top: -10px;
 }
 .box .song-item:hover {
     background: #1d1d1d;
@@ -292,6 +304,10 @@ textarea:focus, input:focus{
 }
 .box .song-item .icon-start {
     display:flex;align-items:center;
+    align-items:center;
+    width: 45px;
+    object-fit: cover;
+    height: 45px;
 }
 .song-item:nth-child(even) {background: #212121}
 
